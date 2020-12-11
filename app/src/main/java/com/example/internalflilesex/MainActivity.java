@@ -73,7 +73,7 @@ String in,line,read;
          catch (IOException e) {
             e.printStackTrace();
         }
-       file.setText(file.getText().toString()+in);
+       file.setText((file.getText().toString()+in));
     }
 
     /**
