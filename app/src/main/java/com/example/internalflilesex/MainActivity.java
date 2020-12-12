@@ -54,6 +54,7 @@ String in,line,read;
         catch (IOException e){
             e.printStackTrace();
         }
+        file.setText(read);
     }
 
     /**
@@ -63,13 +64,13 @@ String in,line,read;
      */
     public void save(View view) {
         in=Input.getText().toString();
-        read=in+read;
-         read=read.replace("/n","");
+        read=read+in;
+        read=read.replace("/n","");
         try {
             FileOutputStream fos=openFileOutput("Input.txt",MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
             BufferedWriter BW= new BufferedWriter(osw);
-            BW.write(in);
+            BW.write(read);
             BW.close();
         }
          catch (IOException e) {
@@ -94,13 +95,13 @@ String in,line,read;
      */
     public void exit(View view) {
         in=Input.getText().toString();
-        read=in+read;
+        read=read+in;
         read=read.replace("/n","");
         try {
             FileOutputStream fos=openFileOutput("Input.txt",MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
             BufferedWriter BW= new BufferedWriter(osw);
-            BW.write(in);
+            BW.write(read);
             BW.close();
         }
         catch (IOException e) {
