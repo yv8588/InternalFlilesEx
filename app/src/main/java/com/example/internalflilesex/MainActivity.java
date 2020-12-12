@@ -62,7 +62,9 @@ String in,line,read;
      * @param view the button that got clicked.
      */
     public void save(View view) {
-         in=Input.getText().toString();
+        in=Input.getText().toString();
+        read=in+read;
+         read=read.replace("/n","");
         try {
             FileOutputStream fos=openFileOutput("Input.txt",MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
@@ -73,7 +75,7 @@ String in,line,read;
          catch (IOException e) {
             e.printStackTrace();
         }
-       file.setText((file.getText().toString()+in));
+       file.setText(read);
     }
 
     /**
@@ -92,6 +94,8 @@ String in,line,read;
      */
     public void exit(View view) {
         in=Input.getText().toString();
+        read=in+read;
+        read=read.replace("/n","");
         try {
             FileOutputStream fos=openFileOutput("Input.txt",MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
@@ -102,7 +106,7 @@ String in,line,read;
         catch (IOException e) {
             e.printStackTrace();
         }
-        file.setText(file.getText().toString()+in);
+        file.setText(read);
         finish();
     }
     @Override
